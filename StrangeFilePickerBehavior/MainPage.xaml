@@ -12,7 +12,7 @@
             </BlazorWebView.RootComponents>
         </BlazorWebView>
 
-        <Button Text="Open" Grid.Row="1" Margin="10" Clicked="Button_OnClicked"></Button>
+        <Button Text="Open from XAML" Grid.Row="1" Margin="10" Clicked="Button_OnClicked"></Button>
     </Grid>
 
 </ContentPage>
