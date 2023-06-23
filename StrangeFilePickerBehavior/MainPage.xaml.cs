@@ -1,4 +1,6 @@
-﻿namespace StrangeFilePickerBehavior;
+﻿using Microsoft.JSInterop;
+
+namespace StrangeFilePickerBehavior;
 
 public partial class MainPage : ContentPage
 {
@@ -6,4 +8,10 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void Button_OnClicked(object sender, EventArgs e)
+    {
+        Pages.Index.GetJSRuntime().InvokeVoidAsync("openFile",
+            new object[] { });
+    }
 }

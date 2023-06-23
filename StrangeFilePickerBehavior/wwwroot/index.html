@@ -12,6 +12,7 @@
 
 <body>
 
+    <input type="file" id="filePicker" style="display:none">
     <div class="status-bar-safe-area"></div>
 
     <div id="app">Loading...</div>
@@ -23,6 +24,20 @@
     </div>
 
     <script src="_framework/blazor.webview.js" autostart="false"></script>
+    <script type="text/javascript">
+
+        const filePicker = document.getElementById('filePicker');
+        filePicker.addEventListener('change', handleFileChange);
+
+        function handleFileChange(event) {
+            alert("file selected");
+        }
+
+        function openFile() {
+            filePicker.click();
+        }
+
+    </script>
 
 </body>
 

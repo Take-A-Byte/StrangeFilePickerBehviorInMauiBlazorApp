@@ -1,7 +1,27 @@
 ﻿@page "/"
+@inject IJSRuntime jsRuntime
 
-<h1>Hello, world!</h1>
+<button @onclick="OpenPDF">Open</button>
 
-Welcome to your new app.
+@code
+{
+    private static Index _injector;
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        _injector = this;
+    }
+
+    internal static IJSRuntime GetJSRuntime()
+    {
+        return _injector.jsRuntime;
+    }
+
+    private async void OpenPDF()
+    {
+        await jsRuntime.InvokeVoidAsync("openFile",
+            new object[] { });
+    }
+
+}
